@@ -12,6 +12,7 @@ import { FooterComponent } from './navegacao/footer/footer.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
+import { ProdutosService } from './produtos/produtos.service';
 
 @NgModule({
   declarations: [            // componentes
@@ -29,6 +30,7 @@ import { DataBindingComponent } from './demos/data-binding/data-binding.componen
     FormsModule,
   ],
   providers: [               // serviços
+    ProdutosService,
     {provide: APP_BASE_HREF, useValue: '/'}  // Configuração de um prefixo de rota. Antes do nome home, podemos configurar o que vai aparecer. Ex: 'admin/', ou simplesmente '/'
   ],
   bootstrap: [AppComponent]
