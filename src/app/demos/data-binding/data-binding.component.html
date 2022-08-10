@@ -1,0 +1,48 @@
+<div class="container main-container">
+    <h3>Interpolation</h3>
+
+    <p>O número de cliques é: {{ contadorClique }}</p>
+    <!-- tb podemos alterar a classe dinamicamente-->
+    <p [ngClass]="{                                    
+        'text-secondary':contadorClique < 3,
+        'text-success':contadorClique >= 3,
+        'text-warning':contadorClique >= 5,
+        'text-danger':contadorClique >= 9
+    }">O número de cliques é: {{ contadorClique }}</p>
+
+    <br>
+    <br>
+
+    <h3>Property Binding</h3>
+
+    <button class="btn btn-info" [disabled]="contadorClique >= 10">Info</button><br><br>
+    <img [src]="urlImagem" height="50px" width="50px" />
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3>Event Binding</h3>
+    <button class="btn btn-warning" (click)="adicionarClique()">Clique-me</button>&nbsp; 
+    <button class="btn btn-danger" [disabled]="contadorClique < 10" (click)="zerarContador()">Clique-me</button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3>Two-way Binding (simulação)</h3>
+    <input type="text" (keyup)="soltarTecla($event)" placeholder="Digite seu nome">  <!-- Esse ($event) faz referência ao elemento input-->
+    <br>
+    <br>
+    <label>Seu nome é {{ nome }}</label>
+
+    <br>
+
+    <h3>Two-way Binding (real)</h3>
+    <input type="text" [(ngModel)]="nome2" placeholder="Digite seu nome"> <!-- Obs: para utilizarmos o ngModel, precisamos importar o FormsModule lá no app.module.ts-->
+    <br>
+    <br>
+    <label>Seu nome é {{ nome2 }}</label> 
+</div>
