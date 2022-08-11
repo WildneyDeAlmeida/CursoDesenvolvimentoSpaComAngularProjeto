@@ -4,6 +4,7 @@ import { rootRouterConfig } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
@@ -13,6 +14,7 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { ProdutosService } from './produtos/produtos.service';
+import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 
 @NgModule({
   declarations: [            // componentes
@@ -22,12 +24,14 @@ import { ProdutosService } from './produtos/produtos.service';
     FooterComponent,
     SobreComponent,
     ContatoComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    ListaProdutoComponent,
   ],
-  imports: [                 // modulos 
+  imports: [                 // módulos 
     BrowserModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false })],  // preciso indicar que é para o o modulo principal, pois eu poderia ter outros arquivos de roteamento para modulos filhos. Obs: useHash serve para indicar se queremos ou não, usar uma '#' no final da Url.
     FormsModule,
+    HttpClientModule
   ],
   providers: [               // serviços
     ProdutosService,
